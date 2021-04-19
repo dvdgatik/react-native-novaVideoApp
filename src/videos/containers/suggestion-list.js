@@ -13,7 +13,7 @@ class SuggestionList extends Component {
 	itemSeparator = () => <Separator color=''/>;
 	renderItem = ({item}) => 
 	{
-		//Spread operation
+		//Spread operator
 		return(
 		<Suggestion {...item}/>
 		)
