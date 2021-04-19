@@ -6,10 +6,18 @@ import {
 import Layout from '../components/suggestion-list-layout';
 import Empty from '../components/empty';
 import Separator from '../components/vertical-separator';
+import Suggestion from '../components/suggestion';
 
 class SuggestionList extends Component {
 	renderEmpty = () => <Empty text='No hay Sugerencias :('/>;
 	itemSeparator = () => <Separator color=''/>;
+	renderItem = ({item}) => 
+	{
+		//Spread operation
+		return(
+		<Suggestion {...item}/>
+		)
+	}
 
 	render() {
 		const list = [
@@ -23,14 +31,15 @@ class SuggestionList extends Component {
 			}
 
 		]
+
 		return(
 			<Layout title='Recomendado para ti'>
 				<FlatList
 				data={list}
 				ListEmptyComponent={this.renderEmpty}
 				ItemSeparatorComponent={this.itemSeparator}
-				renderItem={({item})=> <Text>{item.title}</Text>}
-
+				/*renderItem={({item})=> <Text>{item.title}</Text>}*/
+				renderItem = {this.renderItem}
 				>
 				{/*data: puedes pasarle una lista o un array
 					key: id para evitar rerenders  y optimizar gracias a esta propiedad

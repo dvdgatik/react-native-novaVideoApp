@@ -12,10 +12,11 @@ function VerticalSeparator(props) {
 		<View style={[
 			styles.separator,
 			{
+				//Agregando estilos mas dinamicos a un elemento color universal
 				borderTopColor: (props.color) ? props.color : '#eaeaea'
 			}
 			]}>
-			<Text>Esto es un Separador</Text>
+			{/*<Text>Esto es un Separador</Text>*/}
 		</View>
 	);
 }
