@@ -11,7 +11,7 @@ class Api {
 	// Decomponer solo key data del json con {}
 	async getSuggestions(id) {
 		const query = await fetch(`${BASE_API}movie_suggestions.json?movie_id=${id}`);
-		const { data } = await query.json();
+		const {data} = await query.json();
 		console.log(data);
 		return data.movies;
 	} 

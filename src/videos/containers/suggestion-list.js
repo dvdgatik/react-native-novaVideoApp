@@ -9,6 +9,7 @@ import Separator from '../components/vertical-separator';
 import Suggestion from '../components/suggestion';
 
 class SuggestionList extends Component {
+	keyExtractor = (item) => item.id.toString();
 	renderEmpty = () => <Empty text='No hay Sugerencias :('/>;
 	itemSeparator = () => <Separator color=''/>;
 	renderItem = ({item}) => 
@@ -20,7 +21,7 @@ class SuggestionList extends Component {
 	}
 
 	render() {
-		const list = [
+		/*const list = [
 			{
 				title: 'Avengers',
 				key: '1'
@@ -30,12 +31,13 @@ class SuggestionList extends Component {
 				key: '2'
 			}
 
-		]
+		]*/
 
 		return(
 			<Layout title='Recomendado para ti'>
 				<FlatList
-				data={list}
+				keyExtractor={this.keyExtractor}
+				data={this.props.list}
 				ListEmptyComponent={this.renderEmpty}
 				ItemSeparatorComponent={this.itemSeparator}
 				/*renderItem={({item})=> <Text>{item.title}</Text>}*/
@@ -47,6 +49,7 @@ class SuggestionList extends Component {
 					por defecto renderiza toda la lista pero solo puedes recibir el item que esta dentro
 					ListEmptyComponent: recibe una funcion y renderiza un componente en dado caso de que esta este vacía
 					ItemSeparatorComponent: crea un seperador entre cada elemento
+					keyExtractor: enviar un key al componente de extractor
 				*/}	
 				</FlatList>
 			</Layout>
